@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Manipulation Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Highlight class applied to change background color */
+        .highlight {
+            background-color: yellow;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>jQuery Manipulation Example</h1>
+
+    <div class="box">Box</div>
+    <button id="toggleBtn">Toggle Box Visibility</button>
+    <button id="changeTextBtn">Change Text</button>
+    <button id="changeColorBtn">Change Background Color</button>
+    <button id="addClassBtn">Highlight Box</button>
+    <button id="animateBoxBtn">Animate Box</button>
+
+    <input type="text" id="inputField" placeholder="Enter something">
+    <button id="updateValueBtn">Update Value</button>
+
+    <p id="output"></p>
+
+    <script>
+        // Toggle visibility of the box
+        $('#toggleBtn').click(function() {
+            $('.box').toggle();  // Use .toggle() to hide and show the box
+        });
+
+        // Change the text inside the box
+        $('#changeTextBtn').click(function() {
+            $('.box').text("Updated Text");
+        });
+
+        // Change the background color of the box
+        $('#changeColorBtn').click(function() {
+            $('.box').css('background-color', 'green');
+        });
+
+        // Add a highlight class to the box
+        $('#addClassBtn').click(function() {
+            $('.box').toggleClass('highlight');  // Correctly use toggleClass for adding/removing 'highlight' class
+        });
+
+        // Animate the box with a slide effect
+        $('#animateBoxBtn').click(function() {
+            $('.box').animate({
+                width: "200px",
+                height: "200px",
+                fontSize: "30px"
+            }, 1000);
+        });
+
+        // Update the value of the input field dynamically
+        $('#updateValueBtn').click(function() {
+            var inputValue = $('#inputField').val();
+            $('#output').text("You entered: " + inputValue);
+        });
+    </script>
+
+</body>
+</html>
